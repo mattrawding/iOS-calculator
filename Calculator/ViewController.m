@@ -19,6 +19,25 @@
     return brain;
 }
 
+- (IBAction)decimalPressed:(UIButton *)sender
+{
+    if (userIsInTheMiddleOfTypingANumber)
+    {
+        // if the user is already typing a number, make sure there are no decimals
+        if ([[display text] rangeOfString:@"."].location == NSNotFound)
+        {
+            [display setText:[[display text] stringByAppendingString:@"."]];
+        }
+    }
+    else
+    {
+        // if the user is not already typing a number, set display to "0."
+        [display setText:@"0."];
+        userIsInTheMiddleOfTypingANumber = YES;
+    }
+
+}
+
 - (IBAction)digitPressed:(UIButton *)sender
 {
     NSString *digit = [[sender titleLabel] text];

@@ -47,6 +47,39 @@
     {
         operand = - operand;
     }
+    else if ([@"1/x" isEqual:operation])
+    {
+        if (operand != 0)
+        {
+            operand = 1/operand;
+        }
+    }
+    else if ([@"sin" isEqual:operation])
+    {
+        operand = sin(operand);
+    }
+    else if ([@"cos" isEqual:operation])
+    {
+        operand = cos(operand);
+    }
+    else if ([@"Store" isEqual:operation])
+    {
+        memory = operand;
+    }
+    else if ([@"Recall" isEqual:operation])
+    {
+        operand = memory;
+    }
+    else if ([@"Mem+" isEqual:operation])
+    {
+        memory += operand;
+    }
+    else if ([@"C" isEqual:operation])
+    {
+        operand = 0;
+        memory = 0;
+        waitingOperation = nil;
+    }
     else
     {
         [self performWaitingOperation];
