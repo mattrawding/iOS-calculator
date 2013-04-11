@@ -548,7 +548,6 @@
 						<string key="NSFrame">{{236, 354}, {64, 44}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -853,12 +852,12 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">decimalPressed:</string>
+						<string key="label">decimalPressed</string>
 						<reference key="source" ref="640611435"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">7</int>
 					</object>
-					<int key="connectionID">193</int>
+					<int key="connectionID">212</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -1168,7 +1167,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">211</int>
+			<int key="maxID">212</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1176,15 +1175,15 @@
 					<string key="className">ViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="decimalPressed:">UIButton</string>
+						<string key="decimalPressed">id</string>
 						<string key="digitPressed:">UIButton</string>
 						<string key="onButton:">UIButton</string>
 						<string key="operationPressed:">UIButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="decimalPressed:">
-							<string key="name">decimalPressed:</string>
-							<string key="candidateClassName">UIButton</string>
+						<object class="IBActionInfo" key="decimalPressed">
+							<string key="name">decimalPressed</string>
+							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="digitPressed:">
 							<string key="name">digitPressed:</string>

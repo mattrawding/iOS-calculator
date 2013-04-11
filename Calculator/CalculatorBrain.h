@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface CalculatorBrain : NSObject {
-    double operand;
-    NSString *waitingOperation;
-    double waitingOperand;
-    double memory;
+    @private NSString *waitingOperation;
+    @private double waitingOperand;
+    @private double memory;
 }
 
-- (void)setOperand:(double)aDouble;
+@property double operand;
+
 - (double)performOperation:(NSString *)operation;
 
 @end

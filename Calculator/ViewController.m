@@ -9,30 +9,31 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+@property  (strong, nonatomic) CalculatorBrain *brain;
 @end
 
 @implementation ViewController
-- (CalculatorBrain *)brain
+
+ - (CalculatorBrain *)brain
 {
-    if(!brain) brain = [[CalculatorBrain alloc] init];
-    return brain;
+    if(!_brain) _brain = [[CalculatorBrain alloc] init];
+    return _brain;
 }
 
-- (IBAction)decimalPressed:(UIButton *)sender
+- (IBAction)decimalPressed
 {
     if (userIsInTheMiddleOfTypingANumber)
     {
         // if the user is already typing a number, make sure there are no decimals
-        if ([[display text] rangeOfString:@"."].location == NSNotFound)
+        if ([display.text rangeOfString:@"."].location == NSNotFound)
         {
-            [display setText:[[display text] stringByAppendingString:@"."]];
+            display.text = [display.text stringByAppendingString:@"."];
         }
     }
     else
     {
         // if the user is not already typing a number, set display to "0."
-        [display setText:@"0."];
+        display.text = @"0.";
         userIsInTheMiddleOfTypingANumber = YES;
     }
 
@@ -40,15 +41,15 @@
 
 - (IBAction)digitPressed:(UIButton *)sender
 {
-    NSString *digit = [[sender titleLabel] text];
+    NSString *digit = sender.titleLabel.text;
     
     if (userIsInTheMiddleOfTypingANumber)
     {
-        [display setText:[[display text] stringByAppendingString:digit]];
+        display.text = [display.text stringByAppendingString:digit];
     }
     else
     {
-        [display setText:digit];
+        display.text = digit;
         userIsInTheMiddleOfTypingANumber = YES;
     }
 }
@@ -56,12 +57,12 @@
 - (IBAction)operationPressed:(UIButton *)sender
 {
     if (userIsInTheMiddleOfTypingANumber) {
-        [[self brain] setOperand:[[display text] doubleValue]];
+        [self.brain setOperand:display.text.doubleValue];
         userIsInTheMiddleOfTypingANumber = NO;
     }
-    NSString *operation = [[sender titleLabel] text];
-    double result = [[self brain] performOperation:operation];
-    [display setText:[NSString stringWithFormat:@"%g", result]];
+    NSString *operation = sender.titleLabel.text;
+    double result = [self.brain performOperation:operation];
+    display.text = [NSString stringWithFormat:@"%g", result];
 }
 
 @end

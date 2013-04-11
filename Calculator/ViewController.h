@@ -10,13 +10,12 @@
 #import "CalculatorBrain.h"
 
 @interface ViewController : UIViewController {
-    IBOutlet UILabel *display;
-    CalculatorBrain *brain;
-    BOOL userIsInTheMiddleOfTypingANumber;
+    @private IBOutlet UILabel *display;
+    @private BOOL userIsInTheMiddleOfTypingANumber;
 }
 
 - (IBAction)digitPressed:(UIButton *)sender;
 - (IBAction)operationPressed:(UIButton *)sender;
-- (IBAction)decimalPressed:(UIButton *)sender;
+- (IBAction)decimalPressed;
 
 @end
